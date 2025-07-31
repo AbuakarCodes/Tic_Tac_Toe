@@ -44,3 +44,13 @@ a {
   margin-left: auto;
   cursor: pointer;
 }
+.reset, .Bot {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+}
+.Bot img {
+  height: 3rem;
+}

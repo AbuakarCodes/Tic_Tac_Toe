@@ -1,5 +1,5 @@
 import { combosArry } from "../Data/DataStrustures.js";
-import { Buttons } from "../main.js";
+import { botImg, Buttons, isBot_Playing } from "../main.js";
 
 function Buttons_Disable(isDisabled) {
   Buttons.forEach((Button) => {
@@ -20,6 +20,14 @@ function WinningAlgorithm(player) {
   return { winnigPlayerID: 0 };
 }
 
+function Change_BotImg() {
+  if (isBot_Playing) botImg.src = "Images/Botpalying.svg";
+  else botImg.src = "Images/BotNotPlaying.svg";
+}
 
-
-export { Buttons_Disable, Bot_Pattren_Genrator, WinningAlgorithm };
+export {
+  Buttons_Disable,
+  Bot_Pattren_Genrator,
+  WinningAlgorithm,
+  Change_BotImg,
+};
