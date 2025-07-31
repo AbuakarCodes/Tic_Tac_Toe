@@ -1,6 +1,5 @@
 import { combosArry } from "../Data/DataStrustures.js";
-import variables  from "../main.js";
-let {botImg, Buttons, isBot_Playing} = variables
+import { botImg, Buttons, isBot_Playing } from "../main.js";
 
 function Buttons_Disable(isDisabled) {
   Buttons.forEach((Button) => {
