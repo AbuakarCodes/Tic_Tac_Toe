@@ -43,6 +43,8 @@ a {
 .reset {
   margin-left: auto;
   cursor: pointer;
+}.reset img {
+  height: 2.2rem;
 }
 .reset, .Bot {
   background-color: transparent;
@@ -51,6 +53,23 @@ a {
   cursor: pointer;
 
 }
+
+
 .Bot img {
   height: 3rem;
+}
+
+@media (max-width: 600px) {
+  .btn {
+    height: 7rem;
+    width: 7rem;
+  }
+  .Bot img {
+  height: 2.1rem;
+}
+.reset img {
+  height: 1.5rem;
+}
+
+
 }
