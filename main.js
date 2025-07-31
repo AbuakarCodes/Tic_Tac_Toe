@@ -30,10 +30,8 @@ Bot.addEventListener("click", () => {
   else {
     isBot_Playing = !isBot_Playing;
     letBot_play = !letBot_play;
+    Change_BotImg();
   }
-  Change_BotImg();
-
-  console.log(isBot_Playing, "isBot_Playing");
 });
 
 Reset.addEventListener("click", () => {
@@ -51,7 +49,7 @@ Buttons.forEach((Button) => {
       if (!position_occupied.includes(String(e.target.id)))
         Palyer_activity(true, Button, PlayerII, e, "#f87171", "X");
     }
-    isBot_Playing = true;
+    if (letBot_play) isBot_Playing = true;
   });
 });
 
