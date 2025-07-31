@@ -1,5 +1,6 @@
-import { Buttons,  position_occupied } from "../main.js";
+import { Buttons, position_occupied } from "../main.js";
 import { PlayerI, PlayerII } from "../Data/DataStrustures.js";
+import { VariablesObject } from "../main.js";
 export function reset(time) {
   setTimeout(() => {
     Buttons.forEach((Button) => {
@@ -15,7 +16,9 @@ export function reset(time) {
       PlayerII.id = 2;
       PlayerII.TotalTurned = 0;
       PlayerII.Coordinates.length = 0;
+
+      VariablesObject.gameIsContinue = false;
+      VariablesObject.notBeginingOfGame = false;
     });
   }, time);
 }
-

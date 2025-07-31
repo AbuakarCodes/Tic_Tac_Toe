@@ -14,14 +14,23 @@ export let botImg = Bot.querySelector("img");
 export let Buttons = Array.from(document.querySelectorAll(".btn"));
 export let playerI_Turn = true;
 export let position_occupied = [];
-export let gameIsContinue = false;
-export let initialSatteOfgame = true;
 export let isBot_Playing = true;
 export let letBot_play = true;
+let gameIsContinue = false;
+let notBeginingOfGame = false;
+
+export let VariablesObject = {
+  gameIsContinue,
+  notBeginingOfGame,
+};
 
 Bot.addEventListener("click", () => {
-  isBot_Playing = !isBot_Playing;
-  letBot_play = !letBot_play;
+  if (VariablesObject.notBeginingOfGame && VariablesObject.gameIsContinue)
+    alert("Game is in progress!\nPlease reset the game first.");
+  else {
+    isBot_Playing = !isBot_Playing;
+    letBot_play = !letBot_play;
+  }
   Change_BotImg();
 
   console.log(isBot_Playing, "isBot_Playing");
@@ -33,6 +42,8 @@ Reset.addEventListener("click", () => {
 
 Buttons.forEach((Button) => {
   Button.addEventListener("click", (e) => {
+    VariablesObject.gameIsContinue = true;
+    VariablesObject.notBeginingOfGame = true;
     if (playerI_Turn) {
       if (!position_occupied.includes(String(e.target.id)))
         Palyer_activity(false, Button, PlayerI, e, "	#4ade80", "O");
