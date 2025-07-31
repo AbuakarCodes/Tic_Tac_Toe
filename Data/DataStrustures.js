@@ -7,16 +7,16 @@ export let combosArry = [
   [2, 5, 8],
   [2, 4, 6],
   [0, 4, 8],
-];
+]
 
 export let PlayerI = {
   id: 1,
   TotalTurned: 0,
   Coordinates: [],
-};
+}
 
 export let PlayerII = {
   id: 2,
   TotalTurned: 0,
   Coordinates: [],
-};
+}
