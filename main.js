@@ -7,25 +7,24 @@ import { reset } from "./Functions/reset.js";
 import { PlayerI, PlayerII } from "./Data/DataStrustures.js";
 import { Bot_Algorithm } from "./Functions/BotAlgorithm.js";
 
-let Reset = document.querySelector(".reset");
-let Bot = document.querySelector(".Bot");
-export let botImg = Bot.querySelector("img");
-
+export let Reset = document.querySelector(".reset");
+export let Bot = document.querySelector(".Bot");
 export let Buttons = Array.from(document.querySelectorAll(".btn"));
-export let playerI_Turn = true;
-export let position_occupied = [];
-export let gameIsContinue = false;
-export let initialSatteOfgame = true;
-export let isBot_Playing = true;
-export let letBot_play = true;
+
+export const variables = {
+  botImg: document.querySelector(".BotImage"),
+  playerI_Turn: true,
+  position_occupied: [],
+  gameIsContinue: false,
+  initialSatteOfgame: true,
+  isBot_Playing: true,
+  letBot_play: true,
+};
 
 Bot.addEventListener("click", () => {
   isBot_Playing = !isBot_Playing;
   letBot_play = !letBot_play;
-  Change_BotImg()
-
-  // if ( gameIsContinue) {
-  // } else alert("reset first");
+  Change_BotImg();
 
   console.log(isBot_Playing, "isBot_Playing");
 });
@@ -81,3 +80,4 @@ function Palyer_activity(turn, button, player, e, Bgcolor, representation) {
     }
   }
 }
+
