@@ -23,7 +23,7 @@ export let VariablesObject = {
 
 Bot.addEventListener("click", () => {
   if (VariablesObject.notBeginingOfGame && VariablesObject.gameIsContinue)
-    showPopup("warning", "Game is in progress!\nPlease reset.")
+    showPopup("warning", "Game is in progress!\nPlease reset or Continue.")
   else {
     isBot_Playing = !isBot_Playing
     letBot_play = !letBot_play
