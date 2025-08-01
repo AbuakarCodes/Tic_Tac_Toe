@@ -60,23 +60,27 @@ function Palyer_activity(turn, button, player, e, Bgcolor, representation) {
   button.style.border = "none"
   position_occupied.push(e.target.id)
 
-  if (letBot_play) {
-    if (isBot_Playing) {
-      isBot_Playing = false
-      Bot_Algorithm()
-    }
-  }
-
   if (PlayerI.TotalTurned >= 3 || PlayerII.TotalTurned >= 3) {
     let WinningPlayer_object = WinningAlgorithm(player)
     if (WinningPlayer_object.winnigPlayerID) {
       Buttons_Disable(1)
       setTimeout(() => {
         Buttons_Disable(0)
-        if (WinningPlayer_object.winnigPlayerID == 1) alert("O Won")
-        else alert("X Won")
+        if (WinningPlayer_object.winnigPlayerID == 1) {
+          alert("O Won")
+          playerI_Turn = true
+        } else alert("X Won")
       }, 500)
       reset(500)
     }
   }
+
+  if (letBot_play) {
+    if (isBot_Playing) {
+      isBot_Playing = false
+      Bot_Algorithm()
+    }
+  }
 }
+
+
