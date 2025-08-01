@@ -2,6 +2,7 @@ import { Buttons_Disable, Change_BotImg, WinningAlgorithm } from "./Functions/mi
 import { reset } from "./Functions/reset.js"
 import { PlayerI, PlayerII } from "./Data/DataStrustures.js"
 import { Bot_Algorithm } from "./Functions/BotAlgorithm.js"
+import { showPopup } from "./PopUp/PopUp.js"
 
 let Reset = document.querySelector(".reset")
 let Bot = document.querySelector(".Bot")
@@ -22,7 +23,7 @@ export let VariablesObject = {
 
 Bot.addEventListener("click", () => {
   if (VariablesObject.notBeginingOfGame && VariablesObject.gameIsContinue)
-    alert("Game is in progress!\nPlease reset the game first.")
+    showPopup("warning", "Game is in progress!\nPlease reset.")
   else {
     isBot_Playing = !isBot_Playing
     letBot_play = !letBot_play
@@ -30,9 +31,7 @@ Bot.addEventListener("click", () => {
   }
 })
 
-Reset.addEventListener("click", () => {
-  reset(0)
-})
+Reset.addEventListener("click", () => reset(0))
 
 Buttons.forEach((Button) => {
   Button.addEventListener("click", (e) => {
@@ -63,15 +62,10 @@ function Palyer_activity(turn, button, player, e, Bgcolor, representation) {
   if (PlayerI.TotalTurned >= 3 || PlayerII.TotalTurned >= 3) {
     let WinningPlayer_object = WinningAlgorithm(player)
     if (WinningPlayer_object.winnigPlayerID) {
-      Buttons_Disable(1)
-      setTimeout(() => {
-        Buttons_Disable(0)
-        if (WinningPlayer_object.winnigPlayerID == 1) {
-          alert("O Won")
-          playerI_Turn = true
-        } else alert("X Won")
-      }, 500)
-      reset(500)
+      if (WinningPlayer_object.winnigPlayerID == 1) {
+        showPopup("win", "Congrats! O Won! 🎉", "#4ade80")
+        playerI_Turn = true
+      } else showPopup("Win", " Congrats! X Won!  🎉 ", "#f87171")
     }
   }
 
@@ -82,5 +76,3 @@ function Palyer_activity(turn, button, player, e, Bgcolor, representation) {
     }
   }
 }
-
-

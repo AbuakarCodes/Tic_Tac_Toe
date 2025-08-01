@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="main.js" type="module" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="PopUp/PopUp.css" />
     <link rel="shortcut icon" href="Images/Favicon.svg" type="image/x-icon" />
+    <script src="main.js" type="module" defer></script>
+    <script src="PopUp/PopUp.js" type="module" defer></script>
     <title>Tic Tac Toe</title>
   </head>
   <body>
@@ -29,6 +31,22 @@
         <button class="btn" id="6"></button>
         <button class="btn" id="7"></button>
         <button class="btn" id="8"></button>
+      </div>
+    </div>
+
+    <!-- HTML -->
+<!-- <button id="btn-congrats">Show Congrats Popup</button>
+<button id="btn-warning">Show Warning Popup</button> -->
+
+    <!-- Popup -->
+    <div id="popup-overlay">
+      <div id="popup-card">
+        <h2 id="popup-title">Congrats! X Won!</h2>
+        <div id="PopUpButtonsWraper">
+          <button class="popup-btn">Play Again</button>
+          <button class="popup-btn PopUP-reset-btn ">Reset</button>
+
+        </div>
       </div>
     </div>
   </body>

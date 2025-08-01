@@ -1,6 +1,7 @@
 import { Buttons, position_occupied } from "../main.js"
 import { PlayerI, PlayerII } from "../Data/DataStrustures.js"
 import { VariablesObject } from "../main.js"
+import { closePopup } from "../PopUp/PopUp.js"
 export function reset(time) {
   setTimeout(() => {
     Buttons.forEach((Button) => {
@@ -19,6 +20,9 @@ export function reset(time) {
 
       VariablesObject.gameIsContinue = false
       VariablesObject.notBeginingOfGame = false
+
+      closePopup()
+
     })
   }, time)
 }
