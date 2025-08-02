@@ -9,16 +9,19 @@ let Bot = document.querySelector(".Bot")
 export let botImg = Bot.querySelector("img")
 
 export let Buttons = Array.from(document.querySelectorAll(".btn"))
-export let playerI_Turn = true
 export let position_occupied = []
 export let isBot_Playing = true
 export let letBot_play = true
+let playerI_Turn = true
+let playerWon = false
 let gameIsContinue = false
 let notBeginingOfGame = false
 
 export let VariablesObject = {
   gameIsContinue,
   notBeginingOfGame,
+  playerWon,
+  playerI_Turn,
 }
 
 Bot.addEventListener("click", () => {
@@ -37,7 +40,7 @@ Buttons.forEach((Button) => {
   Button.addEventListener("click", (e) => {
     VariablesObject.gameIsContinue = true
     VariablesObject.notBeginingOfGame = true
-    if (playerI_Turn) {
+    if (VariablesObject.playerI_Turn) {
       if (!position_occupied.includes(String(e.target.id)))
         Palyer_activity(false, Button, PlayerI, e, "	#4ade80", "O")
     } else {
@@ -50,7 +53,7 @@ Buttons.forEach((Button) => {
 
 function Palyer_activity(turn, button, player, e, Bgcolor, representation) {
   if (position_occupied.length == 8) reset(500)
-  playerI_Turn = turn
+  VariablesObject.playerI_Turn = turn
 
   player["Coordinates"] = [...player["Coordinates"], Number(e.target.id)].sort()
   player.TotalTurned = player.TotalTurned + 1
@@ -62,9 +65,9 @@ function Palyer_activity(turn, button, player, e, Bgcolor, representation) {
   if (PlayerI.TotalTurned >= 3 || PlayerII.TotalTurned >= 3) {
     let WinningPlayer_object = WinningAlgorithm(player)
     if (WinningPlayer_object.winnigPlayerID) {
+      VariablesObject.playerWon = true
       if (WinningPlayer_object.winnigPlayerID == 1) {
         showPopup("win", "Congrats! O Won! 🎉", "#4ade80")
-        playerI_Turn = true
       } else showPopup("Win", " Congrats! X Won!  🎉 ", "#f87171")
     }
   }

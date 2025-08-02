@@ -21,6 +21,9 @@ export function reset(time) {
       VariablesObject.gameIsContinue = false
       VariablesObject.notBeginingOfGame = false
 
+      VariablesObject.playerWon = false
+      VariablesObject.playerI_Turn = true
+
       closePopup()
 
     })
