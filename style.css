@@ -8,7 +8,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  padding: 1rem;
+  padding: .5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +42,11 @@ a {
 .btn_wraper {
   width: 100%;
   display: flex;
+  align-items: center;
+}
+.github img {
+  align-self: left;
+  height: 2.2rem;
 }
 .reset {
   margin-left: auto;
@@ -70,7 +75,7 @@ a {
   .Bot img {
     height: 2.1rem;
   }
-  .reset img {
+  .reset img, .github img {
     height: 1.5rem;
   }
 }
